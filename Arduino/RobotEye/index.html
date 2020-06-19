@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Search and Rescue Robot</title>
+	<style>
+body > div {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+button {
+	width: 7em;
+	height: 7em;
+	font-size: 2em;
+	font-weight: bold;
+	margin: 3em 1.5em;
+}
+.divCenter > button {
+	display: block;
+}
+#stream {
+	width: 640px;
+}
+#raw {
+	display: none;
+}
+#status {
+	font-size: 1.5em;
+	font-family: "Courier New";
+}
+	</style>
+</head>
+<body>
+	<div>
+		<p id="status"></p>
+	</div>
+	<div>
+		<img id="raw" src="">
+		<img id="stream" src="">
+	</div>
+	<div>
+		<p><div class="divCenter"><button id="btnLaser">Laser</button><button id="btnLeft">Turn Left</button><button id="btnNLeft">Nudge Left</button></div></p>
+		<p><div class="divCenter"><button id="btnUp">Forward</button><button id="btnStop">Stop</button><button id="btnDown">Backward</button></div></p>
+		<p><div class="divCenter"><button id="btnFire">Fire</button><button id="btnRight">Turn Right</button><button id="btnNRight">Nudge Right</button></div></p>
+	</div>
+	<script>
+document.addEventListener("DOMContentLoaded", async function(event) {
+  var baseHost = document.location.origin;
+  
+  const cam_ws = new WebSocket("ws://192.168.x.xxx:82"); // robot camera server
+  const ai_ws = new WebSocket("ws://192.168.x.xxx:8888/websocket"); // object detection server
+  
+  // code for outputting messages
+  const outputElem = document.getElementById('status');
+  const status = msg => outputElem.innerHTML = msg;
+  
+  // ui elements for robot control
+  const rawView = document.getElementById("raw");
+  const aiView = document.getElementById("stream");
+  const btnForward = document.getElementById("btnUp");
+  const btnReverse = document.getElementById("btnDown");
+  const btnLeft = document.getElementById("btnLeft");
+  const btnRight = document.getElementById("btnRight");
+  const btnStop = document.getElementById("btnStop");
+  const btnLaser = document.getElementById("btnLaser");
+  const btnFire = document.getElementById("btnFire");
+  const btnNLeft = document.getElementById("btnNLeft");
+  const btnNRight = document.getElementById("btnNRight");
+  
+  // connect to robot camera server 
+  cam_ws.onopen = () => {
+    status('Connected to Robot Eye');
+  };
+  // receive images
+  cam_ws.onmessage = message => {
+    if (typeof message.data === "string") {
+      status("Robot: " + message.data);
+    }
+    if (message.data instanceof Blob) {
+	  ai_ws.send(message.data); // forward image to object detection server
+      //var urlObject = URL.createObjectURL(message.data);
+      //rawView.src = urlObject; // the raw view is hidden and only used for debugging
+    }
+  }
+
+  // connect to object detection server 
+  ai_ws.onopen = () => {
+    status('Connected to Robot Brain');
+  };
+  // receive processed images with rectangles and detection confidence
+  ai_ws.onmessage = message => {
+    if (typeof message.data === "string") {
+      status("AI: " + message.data);
+    }
+    if (message.data instanceof Blob) {
+      var urlObject = URL.createObjectURL(message.data);
+      aiView.src = urlObject;
+	  //console.log('received image from ai');
+    }
+  }
+
+  // robot commands
+  btnForward.onclick = () => {
+    cam_ws.send("forward");
+  };
+  btnReverse.onclick = () => {
+    cam_ws.send("reverse");
+  };
+  btnLeft.onclick = () => {
+    cam_ws.send("left");
+  };
+  btnRight.onclick = () => {
+    cam_ws.send("right");
+  };
+  btnStop.onclick = () => {
+    cam_ws.send("stop");
+  };
+  btnFire.onclick = () => {
+    cam_ws.send("fire");
+  };
+  btnLaser.onclick = () => {
+    cam_ws.send("laser");
+  };
+  btnNLeft.onclick = () => {
+    cam_ws.send("nleft");
+  };
+  btnNRight.onclick = () => {
+    cam_ws.send("nright");
+  };
+});
+	</script>
+
+</body>
+</html>
