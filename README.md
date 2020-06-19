@@ -58,7 +58,21 @@ Then, modify the `Arduino/RobotEye/camera_index.h` and replace all the hex code 
 
 ### Step 4
 
-Upload `Arduino/RobotEye/RobotEye.ino` to the ESP32-CAM. Use ESP32 Wrover Module as the board when uploading. Try to use a partition with a high enough space for the app. "Huge App" works fine.
+Modify `Arduino/RobotEye/RobotEye.ino` by putting your wi-fi SSID and password into the code.
+
+![Robot eye code screenshot](Docs/ssid.png)
+
+Make sure you have the ESP32 boards installed in the Arduino IDE. If not, go to `File-Preferences` and make sure `https://dl.espressif.com/dl/package_esp32_index.json` is included under `Additional Boards Manager URLs`.
+
+![Board manager](Docs/boardmanager.png)
+
+Upload `Arduino/RobotEye/RobotEye.ino` to the ESP32-Cam. Use ESP32 Wrover Module as the board when uploading. Try to use a partition with a high enough space for the app. "Huge App" works fine.
+
+![Upload screen](Docs/huge_app.png)
+
+If you do not have an FTDI programmer or any other way to upload code to the ESP32-Cam. Refer to the tutorial below on how to program the ESP32-Cam using just the Arduino Uno.
+
+https://create.arduino.cc/projecthub/PMGOHARIAN/setting-up-esp-cam-with-arduino-no-more-usb-ttl-35467a
 
 ### Step 5
 
@@ -71,4 +85,6 @@ Wire everything up using the Fritzing diagram in `Docs\Search_and_Destroy_Robot.
 
 ### Step 7
 
-Navigate to wherever you hosted the "Remote Control" from step 3 using your browser and enjoy controlling the robot.
+Navigate to wherever you hosted the "Remote Control" UI html page from step 3 using your browser and enjoy searching and rescuing.
+
+![Remote UI image](Docs/remote.png)
