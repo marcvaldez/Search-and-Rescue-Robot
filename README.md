@@ -4,6 +4,26 @@ A project for my mechatronics class in NBCC
 Click on the image below for an overview
 <a href="Docs/Search and rescue Robot.pdf" class="image fit"><img src="Docs/slides_thumbnail.png" alt=""></a>
 
+## Features
+
+- Can be controlled via wi-fi using a laptop or phone or any device that has a browser
+- Has a camera for first-person view
+- Has collision detection through the ultrasonic sensor so that it would automatically stop when it's about to hit an obstacle
+- Able to recognize specific objects to assist in searching (via an external object detection server)
+- Armed with a foam dart pistol and laser module for dealing with threats
+
+## Controls
+
+- Forward
+- Backward
+- Turn Left
+- Turn Right
+- Nudge Left
+- Nudge Right
+- Stop
+- Toggle Laser
+- Fire Weapon
+
 ## Parts
 
 - Arduino Uno
@@ -88,3 +108,23 @@ Wire everything up using the Fritzing diagram in `Docs\Search_and_Destroy_Robot.
 Navigate to wherever you hosted the "Remote Control" UI html page from step 3 using your browser and enjoy searching and rescuing.
 
 ![Remote UI image](Docs/remote.png)
+
+## References
+
+DC Motor Controller with Two Relays
+https://www.instructables.com/id/DC-Motor-Controller-With-Two-Relay/
+
+Programming ESP32-CAM with the Arduino Uno Without FTDI or USB-TTL
+https://create.arduino.cc/projecthub/PMGOHARIAN/setting-up-esp-cam-with-arduino-no-more-usb-ttl-35467a
+
+I2C Between Arduinos
+https://www.instructables.com/id/I2C-between-Arduinos/
+
+Editing the ESP32-CAM Camera Web Server HTML
+https://robotzero.one/esp32-cam-custom-html/
+
+Tensorflow Object Detection Tutorial
+https://github.com/EdjeElectronics/TensorFlow-Object-Detection-API-Tutorial-Train-Multiple-Objects-Windows-10
+
+How to Create a Simple Python WebSocket Server Using Tornado
+https://www.toptal.com/tornado/simple-python-websocket-server
