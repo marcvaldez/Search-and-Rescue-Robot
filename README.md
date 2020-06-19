@@ -28,11 +28,7 @@ Follow the steps in this YouTube tutorial by Edje Electronics
 " target="_blank"><img src="http://img.youtube.com/vi/Rgpfk6eYxJA/0.jpg" 
 alt="Object Detection Tutorial Video Thumbnail" width="240" height="180" border="10" /></a>
 
-or GitHub project
-
-[How To Train an Object Detection Classifier for Multiple Objects Using TensorFlow (GPU) on Windows 10](https://github.com/EdjeElectronics/TensorFlow-Object-Detection-API-Tutorial-Train-Multiple-Objects-Windows-10)
-
-to create a Tensorflow v1 environment and train an object detection model to be able to recognize your "search targets".
+on how to create a Tensorflow v1 environment and train an object detection model to be able to recognize your "search targets".
 
 Note: I found that running `conda install tensorflow-gpu=1.15.0` is a quick shortcut to setting up your tensorflow environment. No need to install CUDA or cuDNN, etc.
 
