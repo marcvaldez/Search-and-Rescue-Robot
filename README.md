@@ -52,7 +52,7 @@ This step is a bit more involved. First, compress all the text content of the mo
 
 ![CyberChef screenshot](Docs/cyberchef.png)
 
-Then, modify the `Arduino/RobotEye/camera_index.h` and replace all the hex code with the output from CyberChef. Don't forget to change the value of `index_ov2640_html_gz_len` to the number of hex codes you got. (I usually just paste it in Notepad++ and find the last column and divide by 5.)
+Then, modify the `Arduino/RobotEye/camera_index.h` and replace all the hex code with the output from CyberChef. Don't forget to change the value of `index_ov2640_html_gz_len` to the number of hex codes you got. (I usually just paste all the hex code in Notepad++ and find the last column and divide by 5.)
 
 #### Bonus Option - Do both options
 
