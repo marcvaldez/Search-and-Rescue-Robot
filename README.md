@@ -1,7 +1,7 @@
 # Search-and-Rescue-Robot
 A project for my mechatronics class in NBCC
 
-Click below to see the robot in action.
+Click on the link below to see the robot in action.
 
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=D-dJUbFVb4I
 " target="_blank"><img src="http://img.youtube.com/vi/D-dJUbFVb4I/0.jpg" 
