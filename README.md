@@ -56,7 +56,7 @@ alt="Object Detection Tutorial Video Thumbnail" width="240" height="180" border=
 
 on how to create a Tensorflow v1 environment and train an object detection model to be able to recognize your "search targets".
 
-Note: I found that running `conda install tensorflow-gpu=1.15.0` is a quick shortcut to setting up your tensorflow environment. No need to install CUDA or cuDNN, etc.
+Tip: I found that running `conda install tensorflow-gpu=1.15.0` is a quick shortcut to setting up your tensorflow environment. No need to install CUDA or cuDNN, etc.
 
 ### Step 2
 
