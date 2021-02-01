@@ -1,6 +1,10 @@
 # Search-and-Rescue-Robot
 A project for my mechatronics class in NBCC
 
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=D-dJUbFVb4I
+" target="_blank"><img src="http://img.youtube.com/vi/D-dJUbFVb4I/0.jpg" 
+alt="Search and Rescue Robot" width="240" height="180" border="10" /></a>
+
 Click on the image below for an overview
 <a href="Docs/Search and rescue Robot.pdf" class="image fit"><img src="Docs/slides_thumbnail.png" alt=""></a>
 
