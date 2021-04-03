@@ -1,5 +1,5 @@
 # Search-and-Rescue-Robot
-A project for my mechatronics class in NBCC
+A project created as a requirement for my mechatronics class in NBCC
 
 Click on the image below to see the robot in action.
 
